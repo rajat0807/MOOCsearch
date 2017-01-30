@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'MOOOOOOOOc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nitw',
+        'NAME': 'MOOCs',
         'USER' : 'root',
-        'PASSWORD' : 'rajat123',
+        'PASSWORD' : '',
         'HOST' : 'localhost',
     }
 }
