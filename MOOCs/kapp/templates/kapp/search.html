@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+	{%load staticfiles%}
+	<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+	<style>
+		a{
+			color: black;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+<div style="position: fixed; top: 0px; background: white; z-index: 1; width: 100%; height: 100px; box-shadow: 0 10px 10px -10px #888888;">
+<a href="{% url 'home' %}">
+	<img src="{% static 'kapp/images/mooc-courses.jpg'%}" style="max-height: 100px;"></a>
+
+	<form action="{% url 'search' %}" method="get" >
+		<input type="text" name="q" style="position: fixed; top: 30px; left: 300px; height: 40px; width: 400px;">
+		<input type="submit" name="submit" value="Search" style="position: fixed; top: 30px; left: 800px; height: 40px; width: 150px;">
+	</form>
+</div>
+<div style="position: absolute; top: 120px; font-size: 45px; width: 100%; font-family: 'Francois One', sans-serif;">
+	<center>Courses</center>
+</div>
+<div style="position: absolute; top: 200px; width: 100%;">
+	
+{% if error %}
+<div style="height: 200px; width: 95%; background: grey; margin: 20px; ">
+	{{error}}
+</div>
+{% else %}
+{% for i in Coursera %}
+<a href="{{i.link}}">
+<div style="height: 150px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px; ">
+	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
+	{{i.title}}
+	<div style="float: right; color: green;">{{i.inst}}</div>
+	<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
+	<img src="{% static 'kapp/images/coursera.jpg'%}" style="max-height: 64px; float: right;">
+	</div>
+</div>
+</a>
+{% endfor %}
+{% for i in Lynda %}
+<a href="{{i.link}}">
+<div style="height: 150px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px; ">
+	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
+	{{i.title}}
+	<div style="float: right; color: green;">Privatised</div>
+	<br>
+	<img src="{%static 'kapp/images/lynda.png'%}" style="max-height: 80px; float: right;">
+	</div>
+</div>
+</a>
+{% endfor %}
+{% for i in Infy %}
+<a href="{{i.link}}">
+<div style="height: 150px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px;">
+	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
+	{{i.title}}
+	<div style="float: right; color: green;">{{i.prof}}</div>
+	<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
+	<img src="{% static 'kapp/images/infiniteskills.jpg'%}" style="max-height: 80px; float: right; padding-top: 5px;">
+	</div>
+</div>
+</a>
+{% endfor %}
+{% for i in Udacity %}
+<a href="{{i.link}}">
+<div style="height: 200px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px;">
+	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">	
+		{{i.title}}
+		<div style="float: right; color: green;">Google</div>
+		<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
+		<img src="{% static 'kapp/images/udacity.png'%}" style="max-height: 80px; margin-top: 10px; float: right;">
+	</div>
+</div>
+</a>
+{% endfor %}
+{% for i in NPTEL %}
+<a href="{{i.link}}">
+<div style="height: 200px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px; ">
+	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;"">
+		{{i.title}}	
+		<div style="float: right; color: green;">{{i.prof}}</div>
+		<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
+		<img src="{% static 'kapp/images/NPTEL.jpg'%}" style="max-height: 80px; margin-top: 10px; float: right;">
+	</div>
+</div>
+</a>
+{% endfor %}
+{% endif %}
+</div>
+</body>
+</html>

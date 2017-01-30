@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOOCs</title>
+	{% load staticfiles %}
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+</head>
+<body>
+<img src="{% static 'kapp/images/mooc-courses.jpg'%}" style="position: absolute; top:15%; left:34%;">
+<form action="{% url 'search' %}" style="position: absolute; top: 55%; left: 35%;" method="get"> 
+	<center>
+		<input type="text" name="q" style="width: 500px; height: 30px;">
+	<br><br><br>
+	<input type="submit" name="submit" value="Search" style="width: 100px; height: 40px; font-family: 'Roboto Slab', serif; font-size: 18px;">
+	</center>
+</form>
+<div style="font-size: 30px; position: fixed; top: 80%; left: 40%; font-family: 'Raleway', sans-serif;">
+	Search for an <b>online course</b>
+</div>
+</body>
+</html>
