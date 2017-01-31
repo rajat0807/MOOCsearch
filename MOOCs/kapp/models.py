@@ -12,54 +12,13 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-class Coursera(models.Model):
+class Courses(models.Model):
     title = models.TextField(blank=True, null=True)
     link = models.TextField(blank=True, null=True)
-    detail = models.TextField(blank=True, null=True)
-    inst = models.TextField(blank=True, null=True)
+    details = models.CharField(max_length=200, blank=True, null=True)
+    course_detail = models.TextField(blank=True, null=True)
+    website = models.CharField(max_length=30, blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'coursera'
-
-
-class Infy(models.Model):
-    title = models.TextField(blank=True, null=True)
-    link = models.TextField(blank=True, null=True)
-    prof = models.TextField(blank=True, null=True)
-    details = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'infy'
-
-
-class Lynda(models.Model):
-    title = models.TextField(blank=True, null=True)
-    link = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'lynda'
-
-
-class Nptel(models.Model):
-    title = models.TextField(blank=True, null=True)
-    link = models.TextField(blank=True, null=True)
-    details = models.TextField(blank=True, null=True)
-    prof = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'nptel'
-
-
-class Udacity(models.Model):
-    title = models.TextField(blank=True, null=True)
-    link = models.TextField(blank=True, null=True)
-    prof = models.TextField(blank=True, null=True)
-    details = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'udacity'
+        db_table = 'courses'

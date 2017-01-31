@@ -14,86 +14,64 @@
 	</style>
 </head>
 <body>
-<div style="position: fixed; top: 0px; background: white; z-index: 1; width: 100%; height: 100px; box-shadow: 0 10px 10px -10px #888888;">
+<div style="position: fixed; top: 0%; background: white; z-index: 1; width: 100%; height: 12%; box-shadow: 0 10px 10px -10px #888888;">
 <a href="{% url 'home' %}">
-	<img src="{% static 'kapp/images/mooc-courses.jpg'%}" style="max-height: 100px;"></a>
-
+	<img src="{% static 'kapp/images/mooc-courses.jpg'%}" style="height: 100%;">
+	</a>
 	<form action="{% url 'search' %}" method="get" >
-		<input type="text" name="q" style="position: fixed; top: 30px; left: 300px; height: 40px; width: 400px;">
-		<input type="submit" name="submit" value="Search" style="position: fixed; top: 30px; left: 800px; height: 40px; width: 150px;">
+		<input type="text" name="q" style="position: fixed; top: 4%; left: 15%; height: 3%; width: 20%;">
+		<input type="submit" name="submit" value="Search" style="position: fixed; top: 4%; left: 36%; height: 4%; width: 6.67%;">
 	</form>
 </div>
-<div style="position: absolute; top: 120px; font-size: 45px; width: 100%; font-family: 'Francois One', sans-serif;">
+<div style="position: absolute; top:15%; left: 46%; font-size: 180%; font-family: 'Francois One', sans-serif;">
 	<center>Courses</center>
 </div>
-<div style="position: absolute; top: 200px; width: 100%;">
+<div style="position: absolute; top: 20%; width: 98%;">
 	
 {% if error %}
-<div style="height: 200px; width: 95%; background: grey; margin: 20px; ">
-	{{error}}
+<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
+<center>{{error}}</center>
 </div>
 {% else %}
-{% for i in Coursera %}
+{% for i in Courses %}
 <a href="{{i.link}}">
-<div style="height: 150px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px; ">
-	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
+<div style="height: 120px; width: 96%; box-shadow: 0 0 20px #888; margin: 20px; ">
+	<div style="font-size: 120%; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
 	{{i.title}}
-	<div style="float: right; color: green;">{{i.inst}}</div>
-	<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
-	<img src="{% static 'kapp/images/coursera.jpg'%}" style="max-height: 64px; float: right;">
-	</div>
-</div>
-</a>
-{% endfor %}
-{% for i in Lynda %}
-<a href="{{i.link}}">
-<div style="height: 150px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px; ">
-	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
-	{{i.title}}
+	{% if i.website == 'Coursera' %}
+	<div style="float: right; color: green;">{{i.course_detail}}</div>
+	<div style="font-size: 90%;">{{i.details}}</div>
+	<img src="{% static 'kapp/images/Coursera.jpg' %}" style="max-height: 44px; float: right;">
+	{% endif%}
+	{% if i.website == 'Lynda' %}
 	<div style="float: right; color: green;">Privatised</div>
-	<br>
-	<img src="{%static 'kapp/images/lynda.png'%}" style="max-height: 80px; float: right;">
-	</div>
-</div>
-</a>
-{% endfor %}
-{% for i in Infy %}
-<a href="{{i.link}}">
-<div style="height: 150px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px;">
-	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">
-	{{i.title}}
-	<div style="float: right; color: green;">{{i.prof}}</div>
-	<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
-	<img src="{% static 'kapp/images/infiniteskills.jpg'%}" style="max-height: 80px; float: right; padding-top: 5px;">
-	</div>
-</div>
-</a>
-{% endfor %}
-{% for i in Udacity %}
-<a href="{{i.link}}">
-<div style="height: 200px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px;">
-	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;">	
-		{{i.title}}
-		<div style="float: right; color: green;">Google</div>
-		<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
-		<img src="{% static 'kapp/images/udacity.png'%}" style="max-height: 80px; margin-top: 10px; float: right;">
-	</div>
-</div>
-</a>
-{% endfor %}
-{% for i in NPTEL %}
-<a href="{{i.link}}">
-<div style="height: 200px; width: 95%; box-shadow: 0 0 20px #888; margin: 20px; ">
-	<div style="font-size: 30px; margin-left: 20px; margin-right: 20px; padding-top: 20px;"">
-		{{i.title}}	
-		<div style="float: right; color: green;">{{i.prof}}</div>
-		<div style="font-size: 20px; margin-top: 5px;">{{i.detail}}</div>
-		<img src="{% static 'kapp/images/NPTEL.jpg'%}" style="max-height: 80px; margin-top: 10px; float: right;">
+	<div style="font-size: 20px;">&nbsp;</div>
+	<div style="font-size: 20px;"></div>
+	<img src="{% static 'kapp/images/Lynda.png' %}" style="max-height: 44px; float: right;">
+	{% endif%}
+	{% if i.website == 'Udacity' %}
+	<div style="float: right; color: green;">Google</div>
+	<div style="font-size: 90%;">{{i.course_detail}}</div>
+	<img src="{% static 'kapp/images/Udacity.png' %}" style="max-height: 44px; float: right;">
+	{% endif%}
+	{% if i.website == 'Infinite Skills' %}
+	<div style="float: right; color: green;">{{i.details}}</div>
+	<div style="font-size: 90%;">{{i.course_detail}}</div>
+	<img src="{% static 'kapp/images/Infinite Skills.jpg' %}" style="max-height: 44px; float: right;">
+	{% endif%}
+
+	{% if i.website == 'NPTEL' %}
+	<div style="float: right; color: green;">{{i.course_detail}}</div>
+	<div style="font-size: 90%;">{{i.details}}</div>
+	<img src="{% static 'kapp/images/NPTEL.jpg' %}" style="max-height: 44px; float: right;">
+	{% endif%}
 	</div>
 </div>
 </a>
 {% endfor %}
 {% endif %}
-</div>
+
+ 
+ </div>
 </body>
 </html>

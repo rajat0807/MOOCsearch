@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'MOOCs',
         'USER' : 'root',
-        'PASSWORD' : '',
+        'PASSWORD' : 'rajat123',
         'HOST' : 'localhost',
     }
 }

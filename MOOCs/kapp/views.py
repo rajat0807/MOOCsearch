@@ -7,19 +7,14 @@ def home(request):
 
 def search(request):
 	query = request.GET['q']
-	print("Requested query : "+str(query))
 
 	if query:
-		words = query.split()
-		cour = Coursera.objects.filter(title__icontains=query)
-		infy = Infy.objects.filter(title__icontains=query)
-		lynda = Lynda.objects.filter(title__icontains=query)
-		nptel = Nptel.objects.filter(title__icontains=query)
-		udac = Udacity.objects.filter(title__icontains=query)
-
+		searched_courses = Courses.objects.filter(title__icontains=query)
 	else:
 		return render(request,'kapp/search.html',{'error' : 'Please search something, bro!'})
 
+	print(searched_courses)
 
-	print(infy)
-	return render(request,'kapp/search.html',{'Coursera' : cour, 'Infy': infy, 'Lynda': lynda, 'NPTEL' : nptel, 'Udacity' : udac,})
+	if len(searched_courses) == 0:
+		return render(request,'kapp/search.html',{'error' : 'No results found!'})
+	return render(request,'kapp/search.html',{'Courses' : searched_courses})

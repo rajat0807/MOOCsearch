@@ -8,15 +8,18 @@
 
 </head>
 <body>
+<br><br><br>
 <div style="width: 100%; text-align: center; height: 100%">
-<img src="{% static 'kapp/images/mooc-courses.jpg'%}" style="top: 15%; ">
+<img src="{% static 'kapp/images/mooc-courses.jpg'%}" style="top: 15%; max-height: 200px;">
 <form action="{% url 'search' %}"  method="get"> 
 	<center>
-		<input type="text" name="q" style="width: 40%;">
+	<br><br><br>
+		<input type="text" name="q" style="width: 40%; height: 18px;">
 	<br><br><br>
 	<input type="submit" name="submit" value="Search" style="width: 100px; height: 40px; font-family: 'Roboto Slab', serif; font-size: 18px;">
 	</center>
 </form>
+<br><br><br>
 <div style="font-size: 30px; font-family: 'Raleway', sans-serif;">
 	Search for an <b>online course</b>
 </div>
