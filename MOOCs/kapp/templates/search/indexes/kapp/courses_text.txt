@@ -1,0 +1,3 @@
+{{ object.title }}
+{{ object.website.get_full_name }}
+{{ object.body }}
